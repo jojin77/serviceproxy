@@ -4,13 +4,12 @@ app:
     notify: appzdev@cloudbourne.co
     
 build:
-    version: 2.0
+    version: 0.2
     env: DEV
     build_file: none
     output_files: output/*.zip
     image_template: proxyserver-0.2
-    image_name: alpha/proxyserver
-    
+        
 deploy:
     context: alpha/DEV
     replicas: 1
@@ -27,6 +26,6 @@ properties:
     RABBITMQ_DEFAULT_USER: appz
     RABBITMQ_DEFAULT_PASS:
       vault: RABBITMQ_DEFAULT_PASS
-    HOST_IP: 127.0.0.1
-    DRIVER_NAME: appz-test
+    #HOST_IP: 127.0.0.1
+    #DRIVER_NAME: appz-test
     revision: 11
