@@ -1,31 +1,23 @@
 app:
-    name: proxyserver
-    code: PROXYSERVER
-    notify: appzdev@cloudbourne.co
+    name: serviceproxy
+    code: SERVICEPROXY
+    notify: jjpaul@ecloudcontrol.com
     
 build:
     version: 0.2
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: proxyserver-0.2
+    image_template: serviceproxy-0.2
         
 deploy:
-    context: alpha/DEV
+    context: jojin77/DEV
+    ingress: none
     replicas: 1
     port:
-    - 8080
-    - 15672
-    - 15675
-    
-monitor:
-    notify: appzops@cloudbourne.co   
+    - 440
+    - 81
+    - 9999 
     
 properties:
-    RABBITMQ_DEFAULT_VHOST: appz
-    RABBITMQ_DEFAULT_USER: appz
-    RABBITMQ_DEFAULT_PASS:
-      vault: RABBITMQ_DEFAULT_PASS
-    #HOST_IP: 127.0.0.1
-    #DRIVER_NAME: appz-test
     revision: 11
